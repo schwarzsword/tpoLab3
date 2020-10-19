@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import static java.lang.Thread.sleep;
 import static lab3.config.Properties.URL;
 
 public class MainSteps {
@@ -32,8 +33,18 @@ public class MainSteps {
         return this;
     }
 
+    @Step("Clean up search pane")
+    public MainSteps cleanUpSearch(){
+        page.searchPane.clear();
+        return this;
+    }
+
     @Step("Submit search result")
     public MainSteps submitSearch() {
+        try {
+
+            sleep(100);
+        }catch (Exception e){}
         page.searchPane.submit();
         page.searchPane.click();
         return this;
