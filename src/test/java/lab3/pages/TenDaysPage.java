@@ -11,12 +11,8 @@ public class TenDaysPage extends Page {
         super(driver);
     }
 
-    public static final String XPATH_ROOT = "//*[contains(@class,'content')]";
     public static final String XPATH_TEMPERATURE = "//*[contains(@class,'unit_temperature_c')]";
-    public static final String XPATH_WIND = "//*[contains(@class,'unit_wind_m_s')]";
-
-    @FindBy(xpath = XPATH_ROOT)
-    public WebElement root;
+    public static final String XPATH_WIND = "//*[contains(@class,'wind_value')]";
 
     @FindBy(xpath = XPATH_TEMPERATURE)
     public List<WebElement> temperatureTabs;

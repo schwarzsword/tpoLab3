@@ -26,7 +26,7 @@ public class ThreeDaysPageTests {
     @Feature("3 days tab")
     @Story("Show weather")
     public void check3DaysTemperatureCount() {
-        Assertions.assertEquals(12, threeDaysPage.temperatureTabs.size());
+        Assertions.assertEquals(40, threeDaysPage.temperatureTabs.size());
     }
 
     @Test
@@ -46,7 +46,7 @@ public class ThreeDaysPageTests {
     @Feature("3 days tab")
     @Story("Show weather")
     public void check3DaysWindCount() {
-        Assertions.assertEquals(12, threeDaysPage.windTabs.size());
+        Assertions.assertEquals(40, threeDaysPage.windTabs.size());
     }
 
     @Test

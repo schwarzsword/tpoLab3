@@ -22,7 +22,7 @@ public class TenDaysPageTests {
     @BeforeAll
     public static void prepare() {
         driver = ChromeConfig.ChromeDriver();
-        tenDaysPage = new MainSteps(driver).navigate10days();
+        tenDaysPage = new MainSteps(driver).openMain().navigate10days();
     }
     @Test
     @DisplayName("Check temperature tabs count in 10 days")
@@ -30,7 +30,7 @@ public class TenDaysPageTests {
     @Feature("3 days tab")
     @Story("Show weather")
     public void check10DaysTemperatureCount() {
-        Assertions.assertEquals(20, tenDaysPage.temperatureTabs.size());
+        Assertions.assertEquals(40, tenDaysPage.temperatureTabs.size());
     }
 
     @Test
@@ -50,7 +50,7 @@ public class TenDaysPageTests {
     @Feature("10 days tab")
     @Story("Show weather")
     public void check10DaysWindCount() {
-        Assertions.assertEquals(10, tenDaysPage.windTabs.size());
+        Assertions.assertEquals(40, tenDaysPage.windTabs.size());
     }
 
     @Test
