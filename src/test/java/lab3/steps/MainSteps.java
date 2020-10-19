@@ -34,6 +34,7 @@ public class MainSteps {
 
     @Step("Submit search result")
     public MainSteps submitSearch() {
+        page.searchPane.submit();
         page.searchPane.click();
         return this;
     }
