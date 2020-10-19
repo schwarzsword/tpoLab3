@@ -7,11 +7,7 @@ import lab3.config.chrome.ChromeConfig;
 import lab3.pages.MainPage;
 import lab3.steps.MainSteps;
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-
-import java.util.List;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class MainPageTests {
@@ -35,9 +31,7 @@ public class MainPageTests {
     @Feature("Today tab")
     @Story("Show weather")
     public void checkTodayTemperature() {
-        String temperatureStr = mainPage.todayTemperature.getText().replaceAll(",", ".");
-        double v = Double.parseDouble(temperatureStr);
-        Assertions.assertTrue(v < 100 && v > -100);
+        mainSteps.checkTemperature();
     }
 
     @Test
@@ -47,8 +41,7 @@ public class MainPageTests {
     @Feature("Today tab")
     @Story("Show weather")
     public void checkTodayWind() {
-        String windStr = mainPage.todayWind.getText();
-        Assertions.assertTrue(windStr.matches("^\\d+ м/с, (Ю|С|В|З|СВ|СЗ|ЮВ|ЮЗ)$"));
+        mainSteps.checkWind();
     }
 
     @Test
@@ -60,10 +53,8 @@ public class MainPageTests {
     public void unexistingCityAutocompleteTest() {
         mainSteps
                 .cleanUpSearch()
-                .typeCity("Ухрюпинск")
-                .submitSearch();
-        List<WebElement> results = mainPage.root.findElements(By.xpath(MainPage.XPATH_FOUND_ELEMENTS_TEXT));
-        Assertions.assertEquals(0, results.size());
+                .typeCity("Новоухрюпинск")
+                .checkNotFound();
     }
 
     @Test
@@ -76,9 +67,7 @@ public class MainPageTests {
         mainSteps
                 .cleanUpSearch()
                 .typeCity("Оренбург")
-                .submitSearch();
-        List<WebElement> results = mainPage.root.findElements(By.xpath(MainPage.XPATH_FOUND_ELEMENTS_TEXT));
-        Assertions.assertEquals("Оренбург", results.get(0).getText());
+                .checkFound();
     }
 
     @Test
@@ -91,13 +80,12 @@ public class MainPageTests {
         mainSteps
                 .cleanUpSearch()
                 .typeCity("Оренбург")
-                .submitSearch()
-                .navigateCity();
-        Assertions.assertTrue(driver.getCurrentUrl().contains("orenburg"));
+                .navigateCity()
+                .checkNavigation();
     }
-
-    @AfterAll
-    public static void quit() {
-        driver.quit();
-    }
+//
+//    @AfterAll
+//    public static void quit() {
+//        driver.quit();
+//    }
 }

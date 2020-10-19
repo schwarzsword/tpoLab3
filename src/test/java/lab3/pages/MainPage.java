@@ -13,6 +13,7 @@ public class MainPage extends Page {
 
 
     public static final String XPATH_ROOT = "//*[contains(@class,'content')]";
+    public static final String XPATH_SEARCH_LIST = "//*[contains(@class,'found opened')]";
     public static final String XPATH_WEATHER_TABS = "//*[contains(@class,'subnav_link')]";
     public static final String XPATH_TODAY_TEMPERATURE = "//*[contains(@class,'unit_temperature_c')]";
     public static final String XPATH_TODAY_WIND = "//*[contains(@class,'unit_wind_m_s')]";
