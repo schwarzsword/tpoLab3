@@ -4,33 +4,31 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import lab3.config.chrome.ChromeConfig;
-import lab3.pages.MainPage;
-import lab3.pages.TenDaysPage;
-import lab3.pages.ThreeDaysPage;
 import lab3.steps.MainSteps;
-import org.junit.jupiter.api.*;
-import org.openqa.selenium.By;
+import lab3.steps.TenDaysSteps;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-
-import java.util.List;
 
 public class TenDaysPageTests {
     private static WebDriver driver;
-    private static TenDaysPage tenDaysPage;
+    private static TenDaysSteps tenDaysSteps;
 
     @BeforeAll
     public static void prepare() {
         driver = ChromeConfig.ChromeDriver();
-        tenDaysPage = new MainSteps(driver).openMain().navigate10days();
+        tenDaysSteps = new MainSteps(driver).openMain().navigate10days();
     }
+
     @Test
     @DisplayName("Check temperature tabs count in 10 days")
     @Description("Check if valid wind tabs count is shown on 3 days tab")
     @Feature("3 days tab")
     @Story("Show weather")
     public void check10DaysTemperatureCount() {
-        Assertions.assertEquals(40, tenDaysPage.temperatureTabs.size());
+        tenDaysSteps.checkTemperatureCount();
     }
 
     @Test
@@ -39,9 +37,7 @@ public class TenDaysPageTests {
     @Feature("10 days tab")
     @Story("Show weather")
     public void check10DaysTemperatureValue() {
-        String temperatureStr = tenDaysPage.temperatureTabs.get(0).getText();
-        double v = Double.parseDouble(temperatureStr);
-        Assertions.assertTrue(v < 100 && v > -100);
+        tenDaysSteps.checkTemperatureValue();
     }
 
     @Test
@@ -50,7 +46,7 @@ public class TenDaysPageTests {
     @Feature("10 days tab")
     @Story("Show weather")
     public void check10DaysWindCount() {
-        Assertions.assertEquals(40, tenDaysPage.windTabs.size());
+        tenDaysSteps.checkWindCount();
     }
 
     @Test
@@ -59,9 +55,7 @@ public class TenDaysPageTests {
     @Feature("10 days tab")
     @Story("Show weather")
     public void check10DaysWindValue() {
-        String temperatureStr = tenDaysPage.windTabs.get(0).getText();
-        double v = Double.parseDouble(temperatureStr);
-        Assertions.assertTrue(v < 1000 && v > 0);
+        tenDaysSteps.checkWindValue();
     }
 
     @AfterAll

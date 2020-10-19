@@ -1,24 +1,16 @@
 package lab3.steps;
 
-import io.qameta.allure.Step;
-import lab3.pages.MainPage;
+import lab3.pages.MapsPage;
 import org.openqa.selenium.WebDriver;
 
-import static lab3.config.Properties.URL;
-
 public class MapsSteps {
-    private MainPage page;
+    private MapsPage page;
     private WebDriver driver;
 
 
     public MapsSteps(WebDriver driver) {
         this.driver = driver;
-        page = new MainPage(this.driver);
+        page = new MapsPage(this.driver);
     }
 
-    @Step("Open main page")
-    public MapsSteps openMain() {
-        driver.get(URL);
-        return this;
-    }
 }

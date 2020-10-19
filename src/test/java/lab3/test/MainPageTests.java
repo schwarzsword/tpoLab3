@@ -4,7 +4,6 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import lab3.config.chrome.ChromeConfig;
-import lab3.pages.MainPage;
 import lab3.steps.MainSteps;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
@@ -13,13 +12,11 @@ import org.openqa.selenium.WebDriver;
 public class MainPageTests {
     private static WebDriver driver;
     private static MainSteps mainSteps;
-    private static MainPage mainPage;
 
     @BeforeAll
     public static void prepare() {
         driver = ChromeConfig.ChromeDriver();
         mainSteps = new MainSteps(driver);
-        mainPage = new MainPage(driver);
         mainSteps
                 .openMain();
     }
@@ -53,7 +50,7 @@ public class MainPageTests {
     public void unexistingCityAutocompleteTest() {
         mainSteps
                 .cleanUpSearch()
-                .typeCity("Новоухрюпинск")
+                .typeCity("Новоуржумка")
                 .checkNotFound();
     }
 
@@ -83,9 +80,9 @@ public class MainPageTests {
                 .navigateCity()
                 .checkNavigation();
     }
-//
-//    @AfterAll
-//    public static void quit() {
-//        driver.quit();
-//    }
+
+    @AfterAll
+    public static void quit() {
+        driver.quit();
+    }
 }
