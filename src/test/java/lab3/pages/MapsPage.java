@@ -11,8 +11,8 @@ public class MapsPage extends Page {
         super(driver);
     }
     public final String XPATH_MAP = "//*[contains(@class,'layout-0')]";
-    public final String XPATH_SUBNAV_ITEMS = "//*[contains(@class,'subnav')]//*[contains(@class, 'subnav_item')]";
+    public final String XPATH_TEMPERATURE_TAB = "//*[contains(@class,'subnav')]//*[contains(@class, 'subnav_item')]/span[text()='Температура воздуха']";
 
-    @FindBy(xpath = XPATH_SUBNAV_ITEMS)
-    public List<WebElement> subnavItems;
+    @FindBy(xpath = XPATH_TEMPERATURE_TAB)
+    public WebElement temperatureTab;
 }

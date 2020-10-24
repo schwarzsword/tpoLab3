@@ -3,7 +3,6 @@ package lab3.test;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
-import lab3.config.chrome.ChromeConfig;
 import lab3.config.firefox.FirefoxConfig;
 import lab3.steps.MainSteps;
 import lab3.steps.MapsSteps;

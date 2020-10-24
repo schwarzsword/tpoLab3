@@ -30,8 +30,7 @@ public class MapsSteps {
 
     @Step("Navigate temperature map")
     public MapsSteps navigateTemperatureMap() {
-        WebElement tempTab = page.subnavItems.stream().filter(e -> e.getText().equals("Температура воздуха")).findFirst().get();
-        tempTab.click();
+        page.temperatureTab.click();
         new WebDriverWait(driver, TIMEOUT)
                 .withMessage("Invalid url, expected URL is " + TEMP_URL)
                 .until(ExpectedConditions.urlContains(TEMP_URL));

@@ -76,8 +76,7 @@ public class MainSteps {
 
     @Step("Navigate maps tab")
     public MapsSteps navigateMaps() {
-        WebElement webElement = page.menuItems.stream().filter(e -> e.getText().equals("Карты")).findFirst().get();
-        webElement.click();
+        page.mapTab.click();
         new WebDriverWait(driver, TIMEOUT)
                 .withMessage("Invalid url, expected URL is " + MAPS_URL)
                 .until(ExpectedConditions.urlContains(MAPS_URL));
