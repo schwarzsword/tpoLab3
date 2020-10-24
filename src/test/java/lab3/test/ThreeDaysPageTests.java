@@ -4,6 +4,7 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import lab3.config.chrome.ChromeConfig;
+import lab3.config.firefox.FirefoxConfig;
 import lab3.steps.MainSteps;
 import lab3.steps.ThreeDaysSteps;
 import org.junit.jupiter.api.*;
@@ -15,7 +16,7 @@ public class ThreeDaysPageTests {
 
     @BeforeAll
     public static void prepare() {
-        driver = ChromeConfig.createDriver();
+        driver = FirefoxConfig.createDriver();
         threeDaysSteps = new MainSteps(driver).openMain().navigate3days();
     }
 

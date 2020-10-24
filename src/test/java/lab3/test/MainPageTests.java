@@ -16,7 +16,7 @@ public class MainPageTests {
 
     @BeforeAll
     public static void prepare() {
-        driver = ChromeConfig.createDriver();
+        driver = FirefoxConfig.createDriver();
         mainSteps = new MainSteps(driver);
         mainSteps
                 .openMain();
