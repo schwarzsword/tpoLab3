@@ -26,7 +26,7 @@ public class TenDaysPageTests {
     @Test
     @DisplayName("Check temperature tabs count in 10 days")
     @Description("Check if valid wind tabs count is shown on 3 days tab")
-    @Feature("3 days tab")
+    @Feature("10 days tab")
     @Story("Show weather")
     public void check10DaysTemperatureCount() {
         tenDaysSteps.checkTemperatureCount();
