@@ -26,8 +26,8 @@ public class TenDaysPageTests {
     @Test
     @DisplayName("Check temperature tabs count in 10 days")
     @Description("Check if valid wind tabs count is shown on 3 days tab")
-    @Feature("10 days tab")
-    @Story("Show weather")
+    @Story("10 days tab")
+    @Feature("Show weather")
     public void check10DaysTemperatureCount() {
         tenDaysSteps.checkTemperatureCount();
     }
@@ -35,8 +35,8 @@ public class TenDaysPageTests {
     @Test
     @DisplayName("Check temperature value in 10 days")
     @Description("Check if valid temperature is shown on 10 days tab")
-    @Feature("10 days tab")
-    @Story("Show weather")
+    @Story("10 days tab")
+    @Feature("Show weather")
     public void check10DaysTemperatureValue() {
         tenDaysSteps.checkTemperatureValue();
     }
@@ -44,8 +44,8 @@ public class TenDaysPageTests {
     @Test
     @DisplayName("Check wind tabs count in 10 days")
     @Description("Check if valid wind tabs count is shown on 10 days tab")
-    @Feature("10 days tab")
-    @Story("Show weather")
+    @Story("10 days tab")
+    @Feature("Show weather")
     public void check10DaysWindCount() {
         tenDaysSteps.checkWindCount();
     }
@@ -53,8 +53,8 @@ public class TenDaysPageTests {
     @Test
     @DisplayName("Check wind value in 10 days")
     @Description("Check if valid wind is shown on 10 days tab")
-    @Feature("10 days tab")
-    @Story("Show weather")
+    @Story("10 days tab")
+    @Feature("Show weather")
     public void check10DaysWindValue() {
         tenDaysSteps.checkWindValue();
     }

@@ -25,17 +25,17 @@ public class MapsPageTests {
     @Test
     @DisplayName("Rain map test")
     @Description("Check if rain map page working")
-    @Feature("Rain map")
-    @Story("Weather maps")
+    @Feature("Weather maps")
+    @Story("Rain map")
     public void checkRainMap() {
         mapsSteps.checkRainMap();
     }
 
     @Test
-    @DisplayName("Rain map test")
-    @Description("Check if rain map page working")
-    @Feature("Rain map")
-    @Story("Weather maps")
+    @DisplayName("Temperature map test")
+    @Description("Check if temperature map page working")
+    @Feature("Weather maps")
+    @Story("Temperature map")
     public void checkTemperatureMap() {
         mapsSteps
                 .navigateTemperatureMap()

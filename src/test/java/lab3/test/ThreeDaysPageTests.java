@@ -24,8 +24,8 @@ public class ThreeDaysPageTests {
     @Test
     @DisplayName("Check temperature tabs count in 3 days")
     @Description("Check if valid temperature tabs count is shown on 3 days tab")
-    @Feature("3 days tab")
-    @Story("Show weather")
+    @Story("3 days tab")
+    @Feature("Show weather")
     public void check3DaysTemperatureCount() {
         threeDaysSteps.checkTemperatureCount();
     }
@@ -33,8 +33,8 @@ public class ThreeDaysPageTests {
     @Test
     @DisplayName("Check temperature in 3 days")
     @Description("Check if valid temperature is shown on 3 days tab")
-    @Feature("3 days tab")
-    @Story("Show weather")
+    @Story("3 days tab")
+    @Feature("Show weather")
     public void check3DaysTemperatureValue() {
         threeDaysSteps.checkTemperatureValue();
     }
@@ -42,8 +42,8 @@ public class ThreeDaysPageTests {
     @Test
     @DisplayName("Check wind tabs count in 3 days")
     @Description("Check if valid wind tabs count is shown on 3 days tab")
-    @Feature("3 days tab")
-    @Story("Show weather")
+    @Story("3 days tab")
+    @Feature("Show weather")
     public void check3DaysWindCount() {
         threeDaysSteps.checkWindCount();
     }
@@ -51,8 +51,8 @@ public class ThreeDaysPageTests {
     @Test
     @DisplayName("Check wind in 3 days")
     @Description("Check if valid wind is shown on 3 days tab")
-    @Feature("3 days tab")
-    @Story("Show weather")
+    @Story("3 days tab")
+    @Feature("Show weather")
     public void check3DaysWindValue() {
        threeDaysSteps.checkWindValue();
     }

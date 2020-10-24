@@ -26,8 +26,8 @@ public class MainPageTests {
     @Order(1)
     @DisplayName("Check temperature today")
     @Description("Check if temperature is shown on today tab")
-    @Feature("Today tab")
-    @Story("Show weather")
+    @Story("Today tab")
+    @Feature("Show weather")
     public void checkTodayTemperature() {
         mainSteps.checkTemperature();
     }
@@ -36,8 +36,8 @@ public class MainPageTests {
     @Order(2)
     @DisplayName("Check wind today")
     @Description("Check if wind is shown on today tab")
-    @Feature("Today tab")
-    @Story("Show weather")
+    @Story("Today tab")
+    @Feature("Show weather")
     public void checkTodayWind() {
         mainSteps.checkWind();
     }
@@ -46,8 +46,8 @@ public class MainPageTests {
     @Order(3)
     @DisplayName("Find invalid city")
     @Description("Check check if system can find desired invalid city")
-    @Feature("Invalid city search autocomplete")
-    @Story("Autocomplete")
+    @Story("Invalid city search autocomplete")
+    @Feature("Autocomplete")
     public void unexistingCityAutocompleteTest() {
         mainSteps
                 .cleanUpSearch()
@@ -59,8 +59,8 @@ public class MainPageTests {
     @Order(4)
     @DisplayName("Find valid city")
     @Description("Check check if system can find desired valid city")
-    @Feature("Valid city search autocomplete")
-    @Story("Autocomplete")
+    @Story("Valid city search autocomplete")
+    @Feature("Autocomplete")
     public void existingCityAutocompleteTest() {
         mainSteps
                 .cleanUpSearch()
@@ -72,8 +72,8 @@ public class MainPageTests {
     @Order(5)
     @DisplayName("Navigate city")
     @Description("Navigate to the city page")
-    @Feature("City search navigation")
-    @Story("Search and navigation")
+    @Story("City search navigation")
+    @Feature("Search and navigation")
     public void existingCityNavigationTest() {
         mainSteps
                 .cleanUpSearch()
