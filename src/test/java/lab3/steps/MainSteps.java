@@ -100,10 +100,17 @@ public class MainSteps {
 
     @Step("Check invalid search result")
     public MainSteps checkNotFound() {
-        new WebDriverWait(driver, TIMEOUT)
+        new WebDriverWait(driver, 30)
                 .until(ExpectedConditions.numberOfElementsToBeMoreThan(By.xpath(page.XPATH_NOT_FOUND_ELEMENTS), 0));
         List<WebElement> results = page.root.findElements(By.xpath(page.XPATH_FOUND_ELEMENTS_TEXT));
         Assertions.assertEquals(0, results.size());
+        return this;
+    }
+
+    @Step("Check empty search result")
+    public MainSteps checkEmptyResult() {
+        new WebDriverWait(driver, TIMEOUT)
+                .until(ExpectedConditions.presenceOfElementLocated(By.xpath(page.XPATH_DEFAULT_HEADER)));
         return this;
     }
 

@@ -3,9 +3,9 @@ package lab3.test;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
-import lab3.config.chrome.ChromeConfig;
 import lab3.config.firefox.FirefoxConfig;
 import lab3.steps.MainSteps;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 
@@ -44,6 +44,32 @@ public class MainPageTests {
 
     @Test
     @Order(3)
+    @DisplayName("Find empty city")
+    @Description("Check check if system can find desired empty city")
+    @Story("Invalid city search autocomplete")
+    @Feature("Autocomplete")
+    public void emptyCityAutocompleteTest() {
+        mainSteps
+                .cleanUpSearch()
+                .typeCity("")
+                .checkEmptyResult();
+    }
+
+    @Test
+    @Order(4)
+    @DisplayName("Find long city")
+    @Description("Check check if system can find desired long city")
+    @Story("Invalid city search autocomplete")
+    @Feature("Autocomplete")
+    public void longCityAutocompleteTest() {
+        mainSteps
+                .cleanUpSearch()
+                .typeCity(StringUtils.repeat("А", 927))
+                .checkNotFound();
+    }
+
+    @Test
+    @Order(5)
     @DisplayName("Find invalid city")
     @Description("Check check if system can find desired invalid city")
     @Story("Invalid city search autocomplete")
@@ -56,7 +82,7 @@ public class MainPageTests {
     }
 
     @Test
-    @Order(4)
+    @Order(6)
     @DisplayName("Find valid city")
     @Description("Check check if system can find desired valid city")
     @Story("Valid city search autocomplete")
@@ -69,7 +95,7 @@ public class MainPageTests {
     }
 
     @Test
-    @Order(5)
+    @Order(7)
     @DisplayName("Navigate city")
     @Description("Navigate to the city page")
     @Story("City search navigation")
