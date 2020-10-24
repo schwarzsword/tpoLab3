@@ -11,7 +11,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
-import static java.lang.Thread.sleep;
 import static lab3.config.Properties.TIMEOUT;
 import static lab3.config.Properties.URL;
 
@@ -21,6 +20,7 @@ public class MainSteps {
     private final String ORENBURG_URL = "orenburg";
     private final String THREE_DAYS_URL = "3-days";
     private final String TEN_DAYS_URL = "10-days";
+    private final String MAPS_URL = "maps";
 
 
     public MainSteps(WebDriver driver) {
@@ -74,6 +74,16 @@ public class MainSteps {
         return new TenDaysSteps(driver);
     }
 
+    @Step("Navigate maps tab")
+    public MapsSteps navigateMaps() {
+        WebElement webElement = page.menuItems.stream().filter(e -> e.getText().equals("Карты")).findFirst().get();
+        webElement.click();
+        new WebDriverWait(driver, TIMEOUT)
+                .withMessage("Invalid url, expected URL is " + MAPS_URL)
+                .until(ExpectedConditions.urlContains(MAPS_URL));
+        return new MapsSteps(driver);
+    }
+
     @Step("Check today temperature")
     public MainSteps checkTemperature() {
         String temperatureStr = page.todayTemperature.getText().replaceAll(",", ".");
@@ -92,7 +102,7 @@ public class MainSteps {
     @Step("Check invalid search result")
     public MainSteps checkNotFound() {
         new WebDriverWait(driver, TIMEOUT)
-                .until(ExpectedConditions.numberOfElementsToBeMoreThan(By.xpath(page.XPATH_FOUND_ELEMENTS), 0));
+                .until(ExpectedConditions.numberOfElementsToBeMoreThan(By.xpath(page.XPATH_NOT_FOUND_ELEMENTS), 0));
         List<WebElement> results = page.root.findElements(By.xpath(page.XPATH_FOUND_ELEMENTS_TEXT));
         Assertions.assertEquals(0, results.size());
         return this;

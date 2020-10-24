@@ -16,7 +16,9 @@ public class MainPage extends Page {
     public final String XPATH_TODAY_TEMPERATURE = "//*[contains(@class,'unit_temperature_c')]";
     public final String XPATH_TODAY_WIND = "//*[contains(@class,'unit_wind_m_s')]";
     public final String XPATH_SEARCH_INPUT = "//*[contains(@class,'search_input')]";
+    public final String XPATH_MENU_ITEMS = "//*[contains(@class,'menuitem')]";
     public final String XPATH_FOUND_ELEMENTS = "//*[contains(@class,'found__list')]//*[contains(@class,'founditem')]";
+    public final String XPATH_NOT_FOUND_ELEMENTS = "//*[contains(@class,'found__notfound')]";
     public final String XPATH_FOUND_ELEMENTS_TEXT = "//*[contains(@class,'found__list')]//*[contains(@class,'founditem')]//*[contains(@class, 'founditem__link')]";
 
     @FindBy(xpath = XPATH_ROOT)
@@ -33,4 +35,7 @@ public class MainPage extends Page {
 
     @FindBy(xpath = XPATH_WEATHER_TABS)
     public List<WebElement> weatherNavTabs;
+
+    @FindBy(xpath = XPATH_MENU_ITEMS)
+    public List<WebElement> menuItems;
 }

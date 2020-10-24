@@ -11,7 +11,7 @@ public class ChromeConfig {
         System.setProperty(CHROME_SYSTEM_PROPERTY, CHROME_PATH);
     }
 
-    public static WebDriver ChromeDriver() {
+    public static WebDriver createDriver() {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         return driver;

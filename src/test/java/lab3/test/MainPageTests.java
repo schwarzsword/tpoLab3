@@ -4,6 +4,7 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import lab3.config.chrome.ChromeConfig;
+import lab3.config.firefox.FirefoxConfig;
 import lab3.steps.MainSteps;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
@@ -15,7 +16,7 @@ public class MainPageTests {
 
     @BeforeAll
     public static void prepare() {
-        driver = ChromeConfig.ChromeDriver();
+        driver = ChromeConfig.createDriver();
         mainSteps = new MainSteps(driver);
         mainSteps
                 .openMain();
@@ -77,6 +78,7 @@ public class MainPageTests {
         mainSteps
                 .cleanUpSearch()
                 .typeCity("Оренбург")
+                .checkFound()
                 .navigateCity()
                 .checkNavigation();
     }

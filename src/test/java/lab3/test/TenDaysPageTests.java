@@ -18,7 +18,7 @@ public class TenDaysPageTests {
 
     @BeforeAll
     public static void prepare() {
-        driver = ChromeConfig.ChromeDriver();
+        driver = ChromeConfig.createDriver();
         tenDaysSteps = new MainSteps(driver).openMain().navigate10days();
     }
 

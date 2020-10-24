@@ -8,7 +8,6 @@ public class MapsPage extends Page {
     public MapsPage(WebDriver driver) {
         super(driver);
     }
-
-    @FindBy(xpath = "//*[contains(@class,'search_input')]")
-    public WebElement searchPane;
+    public final String XPATH_ROOT = "//*[contains(@class,'content')]";
+    public final String XPATH_MAP = "//*[contains(@class,'layout-0')]";
 }
